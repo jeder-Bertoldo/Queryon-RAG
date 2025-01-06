@@ -1,1 +1,2 @@
 pip install flask pymongo faiss-cpu sentence-transformers openai pypdf2 python-dotenv
+pip install openai==0.28
