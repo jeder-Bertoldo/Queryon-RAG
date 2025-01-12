@@ -1,41 +1,43 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Chatbot RAG</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assistente IFAC</title>
+    <link rel="stylesheet" href="../static/css/style.css">
 </head>
 <body>
-    <h1>Chatbot RAG</h1>
-    <form id="upload-form" enctype="multipart/form-data">
-        <input type="file" name="file" required>
-        <button type="submit">Upload Documento</button>
-    </form>
-    <div id="chat">
-        <input type="text" id="query" placeholder="Digite sua pergunta">
-        <button onclick="sendQuery()">Enviar</button>
-        <p id="response"></p>
-    </div>
-    <script>
-        document.getElementById("upload-form").onsubmit = async (e) => {
-            e.preventDefault();
-            const formData = new FormData(e.target);
-            const response = await fetch('/upload', {
-                method: 'POST',
-                body: formData
-            });
-            const result = await response.json();
-            alert(result.message || result.error);
-        };
+    <div class="container">
+        <!-- Logo no topo -->
+        <div class="header-logo">
+            <img src="https://www.ifac.edu.br/o-ifac/comunicacao/copy2_of_logomarcas/logo_ifac_1.png" alt="Logo IFAC">
+        </div>
+        
+        <!-- Texto descritivo -->
+        <div class="header">
+            <h1>Bem-vindo ao Assistente IFAC</h1>
+        </div>
+        
+        <!-- Formulário de Upload -->
+        <form id="upload-form" enctype="multipart/form-data" class="upload-area">
+            <h2>Envie suas Resoluções Administrador</h2>
+            <input type="file" name="files" multiple required>
+            <button type="submit">Upload Documento</button>
+        </form>
 
-        async function sendQuery() {
-            const query = document.getElementById("query").value;
-            const response = await fetch('/chat', {
-                method: 'POST',
-                headers: {'Content-Type': 'application/json'},
-                body: JSON.stringify({query})
-            });
-            const result = await response.json();
-            document.getElementById("response").innerText = result.response;
-        }
-    </script>
+        <!-- Área de Chat -->
+        <div id="chat" class="chat-area">
+            <h2>Fale com o Assistente</h2>
+            <input type="text" id="query" placeholder="Digite sua pergunta">
+            <button onclick="sendQuery()">Enviar</button>
+        </div>
+
+        <!-- Resposta -->
+        <div id="response-area">
+            <h2>Resposta do Assistente</h2>
+            <p id="response"></p>
+        </div>
+    </div>
+    <script src="../static/js/script.js"></script>
 </body>
 </html>
