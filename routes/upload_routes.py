@@ -10,20 +10,28 @@ def index():
     return render_template('index.html')
 
 @upload_routes.route('/upload', methods=['POST'])
-def upload_document():
-    file = request.files.get('file')
-    if not file:
+def upload_documents():
+    files = request.files.getlist('files')  # Aceitar múltiplos arquivos
+    if not files:
         return jsonify({"error": "Nenhum arquivo enviado."}), 400
 
-    text = extract_text_from_pdf(file)
-    embedding = model.encode(text).tolist()
+    total_documents = 0
 
-    # Salvar no MongoDB
-    document = {"text": text, "embedding": embedding}
-    result = collection.insert_one(document)
+    for file in files:
+        # Extrair texto do arquivo atual
+        text = extract_text_from_pdf(file)
 
-    # Adicionar ao FAISS e salvar índice associado
-    faiss_index_id = add_embedding(embedding)
-    collection.update_one({"_id": result.inserted_id}, {"$set": {"faiss_index": faiss_index_id}})
+        # Gerar embedding para o texto
+        embedding = model.encode(text).tolist()
 
-    return jsonify({"message": "Documento adicionado com sucesso!"})
+        # Salvar no MongoDB
+        document = {"text": text, "embedding": embedding}
+        result = collection.insert_one(document)
+
+        # Adicionar ao FAISS e salvar índice associado
+        faiss_index_id = add_embedding(embedding)
+        collection.update_one({"_id": result.inserted_id}, {"$set": {"faiss_index": faiss_index_id}})
+
+        total_documents += 1
+
+    return jsonify({"message": f"{total_documents} documentos adicionados com sucesso!"})
