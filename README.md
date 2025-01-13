@@ -174,8 +174,8 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
 ## 📞 Contato
 
 - **Nome:** Jeder
-- **E-mail:** seuemail@ifac.edu.br
-- **LinkedIn:** [Seu Perfil](https://www.linkedin.com/in/seu-perfil/)
+- **E-mail:** jederbertoldo258@gmail.com
+- **LinkedIn:** [Seu Perfil](https://www.linkedin.com/in/jeder-valdivino-3700101b0/)
 
 ---
 
@@ -188,11 +188,3 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
 
 ---
 
-### **Alterações Realizadas**
-
-1. **Adicionada a explicação sobre a criação do banco de dados e da coleção**:
-   - Banco de dados `chatbot_db`.
-   - Coleção `vectors`.
-
-2. **Comandos no MongoDB Shell**:
-   - Passo a passo para garantir que o banco esteja configurado corretamente.
