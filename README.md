@@ -1,6 +1,3 @@
-Aqui está um **README.md** bem completo para você usar no seu projeto. Ele inclui uma introdução, funcionalidades, requisitos, guia de instalação e uso, além de informações de contato.
-
----
 
 ### **README.md**
 
@@ -70,11 +67,27 @@ OPENAI_API_KEY=sua-chave-openai-aqui
 
 Substitua `MONGO_URI` pelo URI do seu MongoDB, se estiver utilizando o MongoDB Atlas.
 
-### 5. Execute o Banco de Dados
+### 5. Configure o Banco de Dados no MongoDB
+
+Certifique-se de que o MongoDB está em execução e crie:
+
+1. O banco de dados **`chatbot_db`**.
+2. A coleção **`vectors`** dentro do banco.
+
+No MongoDB Shell, você pode executar os seguintes comandos:
+
+```bash
+use chatbot_db
+db.createCollection("vectors")
+```
+
+Isso garante que o projeto funcione corretamente ao salvar os documentos.
+
+### 6. Execute o Banco de Dados
 
 Certifique-se de que o MongoDB está em execução localmente ou conectado ao Atlas.
 
-### 6. Inicialize o Servidor Flask
+### 7. Inicialize o Servidor Flask
 
 ```bash
 python app.py
@@ -175,13 +188,11 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
 
 ---
 
-### **O que está incluído no README**
+### **Alterações Realizadas**
 
-1. **Descrição detalhada do projeto**.
-2. **Guia de instalação e configuração**.
-3. **Instruções para uso das funcionalidades principais**.
-4. **Estrutura do projeto** para fácil navegação.
-5. **Seção de testes** para validar as funcionalidades.
-6. Informações de contribuição, licença e contato.
+1. **Adicionada a explicação sobre a criação do banco de dados e da coleção**:
+   - Banco de dados `chatbot_db`.
+   - Coleção `vectors`.
 
-Se precisar de ajustes ou quiser personalizar algo, estou à disposição! 🚀
+2. **Comandos no MongoDB Shell**:
+   - Passo a passo para garantir que o banco esteja configurado corretamente.
