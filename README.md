@@ -175,7 +175,7 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
 
 - **Nome:** Jeder
 - **E-mail:** jederbertoldo258@gmail.com
-- **LinkedIn:** [Seu Perfil](https://www.linkedin.com/in/jeder-valdivino-3700101b0/)
+- **LinkedIn:** [https://www.linkedin.com/in/jeder-valdivino-3700101b0/]
 
 ---
 
@@ -184,7 +184,5 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
 - [OpenAI](https://platform.openai.com/) pela API de IA.
 - [Sentence Transformers](https://www.sbert.net/) pelos modelos de embeddings.
 - Toda a equipe do IFAC pelo apoio ao desenvolvimento deste projeto.
-```
-
----
+  
 
