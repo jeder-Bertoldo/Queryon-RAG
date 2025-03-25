@@ -1,43 +1,75 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Assistente IFAC</title>
-    <link rel="stylesheet" href="../static/css/style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Queryon</title>
+  <link rel="stylesheet" href="../static/css/style.css">
+  <link rel="stylesheet" href="../static/css/tema.css">
+  <link rel="shortcut icon" type="imagex/png" href="../static/img/logo site.png">
 </head>
 <body>
-    <div class="container">
-        <!-- Logo no topo -->
-        <div class="header-logo">
-            <img src="https://www.ifac.edu.br/o-ifac/comunicacao/copy2_of_logomarcas/logo_ifac_1.png" alt="Logo IFAC">
-        </div>
-        
-        <!-- Texto descritivo -->
-        <div class="header">
-            <h1>Bem-vindo ao Assistente IFAC</h1>
-        </div>
-        
-        <!-- Formulário de Upload -->
-        <form id="upload-form" enctype="multipart/form-data" class="upload-area">
-            <h2>Envie suas Resoluções Administrador</h2>
-            <input type="file" name="files" multiple required>
-            <button type="submit">Upload Documento</button>
-        </form>
 
-        <!-- Área de Chat -->
-        <div id="chat" class="chat-area">
-            <h2>Fale com o Assistente</h2>
-            <input type="text" id="query" placeholder="Digite sua pergunta">
-            <button onclick="sendQuery()">Enviar</button>
-        </div>
+  <!-- Botão de alternar tema (sol e lua) -->
+  <button id="theme-toggle" class="theme-toggle">
+    <span class="icon-sun">☀️</span>
+    <span class="icon-moon" style="display: none;">🌙</span>
+  </button>
 
-        <!-- Resposta -->
-        <div id="response-area">
-            <h2>Resposta do Assistente</h2>
-            <p id="response"></p>
-        </div>
+  <div class="container">
+    <!-- Logo no topo -->
+    <div class="header-logo">
+      <img src="https://www.ifac.edu.br/o-ifac/comunicacao/copy2_of_logomarcas/logo_ifac_1.png" alt="Logo IFAC">
     </div>
-    <script src="../static/js/script.js"></script>
+    
+    <!-- Texto descritivo -->
+    <div class="header">
+      <h1>Queryon</h1>
+      <p class="description">
+        Queryon é um agente inteligente que responde perguntas baseadas em uma base de dados contextual.
+      </p>
+    </div>
+    
+    <!-- Área de Chat -->
+    <div id="chat" class="chat-area">
+      <h2>Queryon</h2>
+      <div class="input-wrapper">
+        <input type="text" id="query" placeholder="Digite sua pergunta">
+        <button onclick="sendQuery()">Enviar</button>
+      </div>
+      
+      <!-- Container para exibir as mensagens (perguntas e respostas) -->
+      <div id="messages"></div>
+    </div>
+
+   
+
+  <!-- Robo no canto -->
+  <div id="robot-assistant">
+    <!-- Ajuste a imagem do robo conforme desejar -->
+    <img 
+      src="../static/img/queryon.png" 
+      alt="Robô do Queryon" 
+      class="robot-image"
+    >
+    <div class="robot-tooltip">
+      <p><strong>Olá!</strong><br>Bem-vindo ao <em>Queryon</em>, seu agente inteligente.<br>faça uma pergunta sobre as principais resoluções do ifac</p>
+    </div>
+   
+  </div>
+
+  <!-- Rodapé fixo -->
+  <footer class="footer">
+    Desenvolvido por Alisson e Jeder
+  </footer>
+
+  <script src="../static/js/script.js"></script>
 </body>
 </html>
+
+ <!-- Resposta (deve continuar existindo) -
+ <div id="response-area" class="response-area">
+  <h2>Resposta do Assistente</h2>
+  <p id="response"></p>
+</div>
+</div>

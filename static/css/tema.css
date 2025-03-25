@@ -1,0 +1,43 @@
+
+/* Botão de alternar tema */
+.theme-toggle {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    z-index: 10000;
+    font-size: 24px;
+    color: #fff;
+    transition: transform 0.5s ease; /* Animação de rotação */
+  }
+  
+  /*  ====== Light Mode (tons de cinza suaves) ======  */
+  body.light-mode {
+    background-color: #e2e2e2; /* cinza claro */
+    color: #333;
+  }
+  body.light-mode .header-logo {
+    background-color: rgba(220, 220, 220, 0.8);
+  }
+  body.light-mode .chat-area {
+    background-color: #a5a3a3; 
+  }
+  body.light-mode .input-wrapper input {
+    background-color: #f0f0f0;
+    color: #333;
+  }
+  body.light-mode .send-button {
+    background-color: #cccccc;
+    color: #333;
+  }
+  body.light-mode .footer {
+    background-color: #a5a3a3;
+    color: #555;
+  }
+  body.light-mode .description {
+    color: #333; /* cor mais escura para destacar no fundo claro */
+  }
+  
+  

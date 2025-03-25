@@ -1,162 +1,200 @@
-/* Corpo e container geral */
-body {
-    margin: 0;
-    padding: 0;
-    font-family: 'Arial', sans-serif;
-    background: #f9f9f9;
-    color: #333;
-    line-height: 1.6;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
+/* Estilo Global */
+html, body {
+  margin: 0;
+  padding: 0;
+  background-color: #343541;
+  color: #fff;
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+  height: 100%;
 }
 
+/* Container Principal 
+   Adicionamos uma margem inferior para não sobrepor o footer fixo. */
 .container {
-    width: 90%;
-    max-width: 800px;
-    margin: 20px auto;
-    background: #fff;
-    padding: 25px;
-    border-radius: 12px;
-    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  max-width: 800px;
+  margin: 0 auto 80px auto; /* Espaço para o footer */
+  padding: 20px;
 }
 
-.container:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.15);
-}
-
-/* Logo no topo */
+/* Header - Logo */
 .header-logo {
-    text-align: center;
-    margin-bottom: 20px;
+  display: block;
+  background-color: #ffffff4b;
+  padding: 10px;
+  border-radius: 8px;
+  text-align: center;
+  width: fit-content;
+  margin: 0 auto 20px auto;
 }
-
 .header-logo img {
-    max-width: 180px;
-    height: auto;
+  max-width: 150px;
+  height: auto;
+  display: block;
+  margin: 0 auto;
 }
 
-/* Texto de introdução */
+/* Header - Título e Descrição */
 .header {
-    text-align: center;
-    margin-bottom: 30px;
+  text-align: center;
+  margin-bottom: 20px;
 }
-
 .header h1 {
-    font-size: 2rem;
-    font-weight: bold;
-    color: #0056b3;
-    margin-bottom: 10px;
+  font-size: 2em;
+  margin: 0;
 }
-
-.header p {
-    font-size: 1.1rem;
-    color: #555;
-}
-
-/* Área de Upload */
-.upload-area {
-    margin-bottom: 30px;
-    text-align: center;
-    background: #f8f9fa;
-    padding: 20px;
-    border-radius: 8px;
-    border: 2px dashed #ccc;
-    transition: border-color 0.3s ease, background-color 0.3s ease;
-}
-
-.upload-area:hover {
-    border-color: #0056b3;
-    background-color: #eef3fc;
-}
-
-.upload-area h2 {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-    color: #333;
-}
-
-.upload-area input[type="file"] {
-    margin: 15px 0;
-    font-size: 1rem;
-}
-
-.upload-area button {
-    background: #0056b3;
-    color: white;
-    border: none;
-    padding: 12px 25px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.3s, transform 0.2s;
-}
-
-.upload-area button:hover {
-    background: #003d80;
-    transform: translateY(-2px);
+.description {
+  margin-top: 10px;
+  font-size: 1em;
+  line-height: 1.4;
+  color: #d1d5da;
 }
 
 /* Área de Chat */
 .chat-area {
-    margin-bottom: 30px;
-    text-align: center;
-}
+  background-color: #40414F;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
 
+  /* >>> ALTERAÇÕES AQUI <<< */
+  max-height: 450px;       /* Limite máximo de altura para ficar "pequeno", como no ChatGPT */
+  overflow-y: auto;        /* Rolagem vertical quando exceder 450px de conteúdo */
+}
 .chat-area h2 {
-    font-size: 1.4rem;
-    margin-bottom: 10px;
-    color: #333;
+  margin-top: 0;
+  font-size: 1.5em;
 }
-
+.input-wrapper {
+  display: flex;
+  gap: 10px;
+  margin-top: 15px;
+}
 .chat-area input {
-    width: 70%;
-    padding: 10px;
-    font-size: 1rem;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    outline: none;
-    transition: border-color 0.3s ease;
+  flex: 1;
+  padding: 10px;
+  font-size: 1em;
+  border: none;
+  border-radius: 5px;
 }
-
-.chat-area input:focus {
-    border-color: #0056b3;
-}
-
 .chat-area button {
-    background: #0056b3;
-    color: white;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 1rem;
-    transition: background 0.3s, transform 0.2s;
+  background-color: #10a37f;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 1em;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
 }
-
 .chat-area button:hover {
-    background: #003d80;
-    transform: translateY(-2px);
+  background-color: #0e8a6d;
 }
 
-/* Resposta */
-#response-area {
-    background: #f1f1f1;
-    padding: 20px;
-    border-radius: 8px;
-    box-shadow: 0px 3px 6px rgba(0, 0, 0, 0.1);
-    text-align: left;
-    color: #555;
-    font-size: 1rem;
-    line-height: 1.6;
-    margin-top: 20px;
+/* Container das mensagens (histórico de conversa) */
+#messages {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
 }
 
-#response-area h2 {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #333;
+/* Balão da mensagem do usuário */
+.user-message {
+  align-self: flex-end;
+  background-color: #10a37f;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 12px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+/* Balão da mensagem do assistente */
+.assistant-message {
+  align-self: flex-start;
+  background-color: #444654;
+  color: #fff;
+  padding: 10px 15px;
+  border-radius: 12px;
+  max-width: 70%;
+  word-wrap: break-word;
+}
+
+/* Área de Resposta (mantida) */
+.response-area {
+  background-color: #40414F;
+  padding: 20px;
+  border-radius: 10px;
+  margin-bottom: 20px;
+}
+.response-area h2 {
+  margin-top: 0;
+  font-size: 1.5em;
+}
+#response {
+  display: inline-block;
+  background-color: #444654;
+  padding: 15px;
+  border-radius: 8px;
+  white-space: pre-wrap;
+  margin-top: 10px;
+  word-wrap: break-word;
+  min-height: 24px;
+}
+
+/* Rodapé Fixo */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  text-align: center;
+  padding: 10px 0;
+  background-color: #202123;
+  color: #bbb;
+  font-size: 0.9em;
+  z-index: 9999;
+}
+
+/* Robô no canto */
+#robot-assistant {
+  position: fixed;
+  bottom: 120px; /* Acima do rodapé fixo */
+  right: 20px;
+  z-index: 9998;
+  cursor: pointer;
+}
+
+/* Animação sutil do robozinho */
+.robot-image {
+  width: 110px; 
+  height: auto;
+  animation: robot-bounce 2s infinite;
+}
+
+/* Tooltip do robozinho */
+.robot-tooltip {
+  display: none; /* Exibe somente ao passar o mouse */
+  position: absolute;
+  bottom: 100%;
+  right: 0;
+  background-color: #444654;
+  color: #fff;
+  border-radius: 8px;
+  padding: 10px;
+  margin-bottom: 8px;
+  width: 250px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+}
+
+/* Ao passar o mouse sobre o #robot-assistant, mostra a tooltip */
+#robot-assistant:hover .robot-tooltip {
+  display: block;
+}
+
+/* Pequena animação do robô: "pulinho" */
+@keyframes robot-bounce {
+  0%   { transform: translateY(0); }
+  50%  { transform: translateY(-5px); }
+  100% { transform: translateY(0); }
 }
