@@ -103,28 +103,15 @@ document.addEventListener("DOMContentLoaded", () => {
   }
 });
 
-document.addEventListener("DOMContentLoaded", function () {
-  const themeToggle = document.getElementById("theme-toggle");
-  const sunIcon = themeToggle.querySelector(".icon-sun");
-  const moonIcon = themeToggle.querySelector(".icon-moon");
+const themeToggle = document.getElementById('theme-toggle');
+const icon = themeToggle.querySelector('.icon');
 
-  themeToggle.addEventListener("click", function () {
-    // Alterna o tema
-    document.body.classList.toggle("light-mode");
-
-    // Gera a rotação
-    themeToggle.style.transform = "rotate(360deg)";
-    setTimeout(() => {
-      themeToggle.style.transform = "";
-    }, 500);
-
-    // Alterna os ícones
-    if (document.body.classList.contains("light-mode")) {
-      sunIcon.style.display = "none";
-      moonIcon.style.display = "inline-block";
-    } else {
-      sunIcon.style.display = "inline-block";
-      moonIcon.style.display = "none";
-    }
-  });
+themeToggle.addEventListener('click', () => {
+  const isLight = document.body.classList.toggle('light-mode');
+  icon.textContent = isLight ? '🌙' : '☀️';
 });
+
+
+
+const chat = document.getElementById("chat");
+chat.scrollTop = chat.scrollHeight;

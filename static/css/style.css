@@ -1,4 +1,4 @@
-/* Estilo Global */
+/* Reset e estilo global */
 html, body {
   margin: 0;
   padding: 0;
@@ -6,17 +6,18 @@ html, body {
   color: #fff;
   font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
   height: 100%;
+  overflow-x: hidden;
 }
 
-/* Container Principal 
-   Adicionamos uma margem inferior para não sobrepor o footer fixo. */
+/* Container principal */
 .container {
   max-width: 800px;
-  margin: 0 auto 80px auto; /* Espaço para o footer */
+  margin: 0 auto;
   padding: 20px;
+  padding-bottom: 140px; /* espaço para input e footer */
 }
 
-/* Header - Logo */
+/* Header - logo */
 .header-logo {
   display: block;
   background-color: #ffffff4b;
@@ -29,11 +30,9 @@ html, body {
 .header-logo img {
   max-width: 150px;
   height: auto;
-  display: block;
-  margin: 0 auto;
 }
 
-/* Header - Título e Descrição */
+/* Header - título e descrição */
 .header {
   text-align: center;
   margin-bottom: 20px;
@@ -49,56 +48,26 @@ html, body {
   color: #d1d5da;
 }
 
-/* Área de Chat */
+/* Área do chat (rolável) */
 .chat-area {
-  background-color: #40414F;
+  background-color: #343541;
   padding: 20px;
   border-radius: 10px;
-  margin-bottom: 20px;
-
-  /* >>> ALTERAÇÕES AQUI <<< */
-  max-height: 450px;       /* Limite máximo de altura para ficar "pequeno", como no ChatGPT */
-  overflow-y: auto;        /* Rolagem vertical quando exceder 450px de conteúdo */
-}
-.chat-area h2 {
-  margin-top: 0;
-  font-size: 1.5em;
-}
-.input-wrapper {
-  display: flex;
-  gap: 10px;
-  margin-top: 15px;
-}
-.chat-area input {
-  flex: 1;
-  padding: 10px;
-  font-size: 1em;
-  border: none;
-  border-radius: 5px;
-}
-.chat-area button {
-  background-color: #10a37f;
-  color: #fff;
-  border: none;
-  padding: 10px 20px;
-  font-size: 1em;
-  border-radius: 5px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-.chat-area button:hover {
-  background-color: #0e8a6d;
-}
-
-/* Container das mensagens (histórico de conversa) */
-#messages {
-  margin-top: 20px;
+  max-height: 60vh;
+  overflow-y: auto;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
-/* Balão da mensagem do usuário */
+/* Container das mensagens */
+#messages {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Mensagem do usuário */
 .user-message {
   align-self: flex-end;
   background-color: #10a37f;
@@ -109,7 +78,7 @@ html, body {
   word-wrap: break-word;
 }
 
-/* Balão da mensagem do assistente */
+/* Mensagem do assistente */
 .assistant-message {
   align-self: flex-start;
   background-color: #444654;
@@ -120,29 +89,58 @@ html, body {
   word-wrap: break-word;
 }
 
-/* Área de Resposta (mantida) */
-.response-area {
-  background-color: #40414F;
-  padding: 20px;
-  border-radius: 10px;
-  margin-bottom: 20px;
-}
-.response-area h2 {
-  margin-top: 0;
-  font-size: 1.5em;
-}
-#response {
-  display: inline-block;
-  background-color: #444654;
-  padding: 15px;
-  border-radius: 8px;
-  white-space: pre-wrap;
-  margin-top: 10px;
-  word-wrap: break-word;
-  min-height: 24px;
+/* Input fixo no fim da tela */
+.input-area {
+  position: fixed;
+  bottom: 50px; /* acima do footer */
+  left: 50%;
+  transform: translateX(-50%);
+  width: 40%;
+  background-color: #343541;
+  padding: 10px 20px;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.3);
+  z-index: 9999;
+  border-radius: 20px;
+  height: 70px;
 }
 
-/* Rodapé Fixo */
+/* Input e botão */
+.input-wrapper {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.input-wrapper input {
+  flex: 1;
+  height: 100%;
+  padding: 0 15px;
+  font-size: 1em;
+  outline: none; 
+  border: none;
+  border-radius: 20px;
+  background-color: transparent; /* Fica igual à .input-area */
+  color: white;
+}
+
+.input-wrapper button {
+  height: 70%;
+  padding: 0 20px;
+  font-size: 1em;
+  background-color: #10a37f;
+  color: white;
+  border: none;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+.input-wrapper button:hover {
+  background-color: #0e8a6d;
+}
+
+
+/* Footer fixo */
 .footer {
   position: fixed;
   bottom: 0;
@@ -153,28 +151,26 @@ html, body {
   background-color: #202123;
   color: #bbb;
   font-size: 0.9em;
-  z-index: 9999;
+  z-index: 9998;
 }
 
-/* Robô no canto */
+/* Robô fixo */
 #robot-assistant {
   position: fixed;
-  bottom: 120px; /* Acima do rodapé fixo */
+  bottom: 120px; /* acima do input */
   right: 20px;
   z-index: 9998;
   cursor: pointer;
 }
-
-/* Animação sutil do robozinho */
 .robot-image {
-  width: 110px; 
+  width: 110px;
   height: auto;
   animation: robot-bounce 2s infinite;
 }
 
-/* Tooltip do robozinho */
+/* Tooltip do robô */
 .robot-tooltip {
-  display: none; /* Exibe somente ao passar o mouse */
+  display: none;
   position: absolute;
   bottom: 100%;
   right: 0;
@@ -184,17 +180,15 @@ html, body {
   padding: 10px;
   margin-bottom: 8px;
   width: 250px;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 }
-
-/* Ao passar o mouse sobre o #robot-assistant, mostra a tooltip */
 #robot-assistant:hover .robot-tooltip {
   display: block;
 }
 
-/* Pequena animação do robô: "pulinho" */
+/* Animação do robô */
 @keyframes robot-bounce {
-  0%   { transform: translateY(0); }
-  50%  { transform: translateY(-5px); }
+  0% { transform: translateY(0); }
+  50% { transform: translateY(-5px); }
   100% { transform: translateY(0); }
 }

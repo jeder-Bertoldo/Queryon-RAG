@@ -1,43 +1,122 @@
+/* Switch container */
+.theme-toggle-switch {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  width: 60px;
+  height: 30px;
+  background-color: #555;
+  border-radius: 30px;
+  padding: 3px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  transition: background-color 0.3s ease;
+  z-index: 10000;
+}
 
-/* Botão de alternar tema */
-.theme-toggle {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    background: none;
-    border: none;
-    cursor: pointer;
-    z-index: 10000;
-    font-size: 24px;
-    color: #fff;
-    transition: transform 0.5s ease; /* Animação de rotação */
-  }
-  
-  /*  ====== Light Mode (tons de cinza suaves) ======  */
-  body.light-mode {
-    background-color: #e2e2e2; /* cinza claro */
-    color: #333;
-  }
-  body.light-mode .header-logo {
-    background-color: rgba(220, 220, 220, 0.8);
-  }
-  body.light-mode .chat-area {
-    background-color: #a5a3a3; 
-  }
-  body.light-mode .input-wrapper input {
-    background-color: #f0f0f0;
-    color: #333;
-  }
-  body.light-mode .send-button {
-    background-color: #cccccc;
-    color: #333;
-  }
-  body.light-mode .footer {
-    background-color: #a5a3a3;
-    color: #555;
-  }
-  body.light-mode .description {
-    color: #333; /* cor mais escura para destacar no fundo claro */
-  }
-  
-  
+/* Bolinha deslizante */
+.toggle-thumb {
+  width: 24px;
+  height: 24px;
+  background-color: #555;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease;
+  font-size: 16px;
+}
+
+/* Ícone rotativo */
+.toggle-thumb .icon {
+  display: inline-block;
+  transition: transform 0.4s ease;
+}
+
+/* Modo claro: desliza para a direita e gira o ícone */
+body.light-mode .theme-toggle-switch {
+  background-color: #555;
+}
+
+body.light-mode .toggle-thumb {
+  transform: translateX(30px);
+}
+
+body.light-mode .toggle-thumb .icon {
+  transform: rotate(180deg);
+}
+
+
+
+  /* ====== Light Mode (Tons suaves e limpos) ====== */
+body.light-mode {
+  background-color: #f5f5f5;
+  color: #222;
+}
+
+/* Logo com fundo mais claro */
+body.light-mode .header-logo {
+  background-color: rgba(240, 240, 240, 0.9);
+}
+
+/* Chat container */
+body.light-mode .chat-area {
+  background-color: #f5f5f5;
+}
+
+/* Mensagens do usuário */
+body.light-mode .user-message {
+  background-color: #10a37f;
+  color: #fff;
+}
+
+/* Mensagens do assistente */
+body.light-mode .assistant-message {
+  background-color: #dddddd;
+  color: #222;
+}
+
+/* Input fixo */
+body.light-mode .input-area {
+  background-color: #ffffff;
+  box-shadow: 0 -2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Campo de input */
+body.light-mode .input-wrapper input {
+  background-color: transparent;
+  color: #222;
+}
+
+/* Botão de envio */
+body.light-mode .input-wrapper button {
+  background-color: #10a37f;
+  color: white;
+}
+body.light-mode .input-wrapper button:hover {
+  background-color: #45a049;
+}
+
+/* Rodapé */
+body.light-mode .footer {
+  background-color: #e0e0e0;
+  color: #555;
+}
+
+/* Descrição abaixo do título */
+body.light-mode .description {
+  color: #444;
+}
+
+/* Tooltip do robô */
+body.light-mode .robot-tooltip {
+  background-color: #f0f0f0;
+  color: #222;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Ícone de alternar tema */
+body.light-mode .theme-toggle {
+  color: #222;
+}
