@@ -7,7 +7,7 @@ def generate_response(query, context):
     response = openai.ChatCompletion.create(
         model="gpt-3.5-turbo",
         messages=[
-            {"role": "system", "content": "Você é um assistente que responde com base no contexto fornecido."},
+            {"role": "system", "content": "Você é o agente inteligente queryon e vai responder as perguntas com base do texto disponivel"},
             {"role": "user", "content": f"Contexto: {context}\nPergunta: {query}"}
         ]
     )
