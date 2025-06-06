@@ -192,3 +192,98 @@ html, body {
   50% { transform: translateY(-5px); }
   100% { transform: translateY(0); }
 }
+
+
+
+/* Responsividade para telas menores */
+@media (max-width: 768px) {
+  .container {
+    padding: 10px;
+  }
+
+  .header h1 {
+    font-size: 1.5em;
+  }
+
+  .chat-area {
+    padding: 15px;
+    max-height: 50vh;
+  }
+
+  .input-area {
+    width: 90%;
+    height: auto;
+    padding: 10px;
+  }
+
+  .input-wrapper {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+  
+  .input-wrapper input {
+    flex: 1;
+    height: 45px;
+    padding: 0 15px;
+    font-size: 1em;
+    border: none;
+    border-radius: 20px;
+    background-color: #40414f;
+    color: white;
+  }
+  
+  .input-wrapper button {
+    height: 38px;
+    padding: 0 15px;
+    font-size: 0.9em;
+    background-color: #10a37f;
+    color: white;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .input-wrapper button:hover {
+    background-color: #0e8a6d;
+  }
+  
+
+  .user-message,
+  .assistant-message {
+    max-width: 100%;
+    font-size: 0.95em;
+  }
+
+  #robot-assistant {
+    right: 10px;
+    bottom: 130px;
+  }
+
+  .robot-tooltip {
+    width: 200px;
+    font-size: 0.9em;
+  }
+
+  .footer {
+    font-size: 0.8em;
+    padding: 8px 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .header h1 {
+    font-size: 1.3em;
+  }
+
+  .input-wrapper input,
+  .input-wrapper button {
+    font-size: 0.9em;
+  }
+
+  .robot-tooltip {
+    width: 180px;
+    font-size: 0.85em;
+  }
+}
