@@ -1,8 +1,11 @@
 
 ### **README.md**
 
-```markdown
 # Chatbot RAG - Assistente Inteligente IFAC
+
+<p align="center">
+  <img src="static/img/screenshot-queryon.png" alt="Interface do Queryon" width="800"/>
+</p>
 
 Este é um projeto de Chatbot desenvolvido para auxiliar no gerenciamento e consulta de resoluções e documentos no IFAC, utilizando inteligência artificial. O sistema suporta o upload de documentos em PDF e responde a perguntas com base no conteúdo enviado.
 
