@@ -1,18 +1,15 @@
-
-### **README.md**
-
-# Chatbot RAG - Assistente Inteligente IFAC
+# Agente inteligente RAG - Assistente Inteligente IFAC
 
 <p align="center">
   <img src="static/img/screenshot-queryon.png" alt="Interface do Queryon" width="800"/>
 </p>
 
-Este é um projeto de Chatbot desenvolvido para auxiliar no gerenciamento e consulta de resoluções e documentos no IFAC, utilizando inteligência artificial. O sistema suporta o upload de documentos em PDF e responde a perguntas com base no conteúdo enviado.
+Este é um projeto de Agente inteligente desenvolvido para auxiliar no gerenciamento e consulta de resoluções e documentos no IFAC, utilizando inteligência artificial. O sistema utiliza **web scraping** para coletar automaticamente resoluções públicas do site oficial e responde a perguntas com base nesse conteúdo.
 
 ## 📋 Funcionalidades
 
-- Upload de múltiplos documentos em PDF.
-- Geração de respostas com base no conteúdo dos documentos enviados.
+- Coleta automática de resoluções via web scraping.
+- Geração de respostas com base no conteúdo das resoluções coletadas.
 - Interface intuitiva e responsiva.
 - Busca semântica eficiente utilizando FAISS e embeddings gerados pelo `sentence-transformers`.
 - Integração com a API da OpenAI para respostas contextuais.
@@ -22,7 +19,7 @@ Este é um projeto de Chatbot desenvolvido para auxiliar no gerenciamento e cons
 - **Backend**: Flask
 - **Banco de Dados**: MongoDB
 - **Busca Semântica**: FAISS
-- **Processamento de Texto**: PyPDF2, Sentence Transformers
+- **Processamento de Texto**: BeautifulSoup, Sentence Transformers
 - **Frontend**: HTML, CSS, JavaScript
 - **Integração com IA**: OpenAI API
 
@@ -102,17 +99,17 @@ O servidor estará disponível em [http://127.0.0.1:5000/](http://127.0.0.1:5000
 
 ## 🖥️ Uso
 
-### 1. Enviar Documentos
+### 1. Coletar e Indexar Resoluções
 
-1. Acesse a página principal.
-2. Use o botão **"Enviar Resoluções"** para selecionar múltiplos arquivos PDF.
-3. Clique em **"Upload Documento"** para processar os arquivos.
+1. Acesse a interface principal.
+2. Clique no botão **"Buscar Resoluções"**.
+3. O sistema fará o scraping das resoluções diretamente do site do IFAC e armazenará as informações no banco de dados.
 
-### 2. Consultar o Chatbot
+### 2. Consultar o Agente Inteligente
 
 1. Digite sua pergunta no campo de texto.
 2. Clique no botão **"Enviar"**.
-3. Veja a resposta do chatbot exibida na área de respostas.
+3. Veja a resposta contextual exibida na área de respostas.
 
 ---
 
@@ -122,23 +119,21 @@ O servidor estará disponível em [http://127.0.0.1:5000/](http://127.0.0.1:5000
 chatbot_project/
 ├── app.py                     # Arquivo principal do Flask
 ├── routes/                    # Rotas do Flask
-│   ├── upload_routes.py       # Rotas de upload
-│   ├── chat_routes.py         # Rotas do chatbot
+│   ├── scraping_routes.py     # Rotas de scraping
+│   ├── chat_routes.py         # Rotas do agente
 ├── services/                  # Lógica central
 │   ├── faiss_service.py       # Gerenciamento do FAISS
-│   ├── pdf_service.py         # Extração de texto de PDFs
+│   ├── scraping_service.py    # Web scraping e tratamento de texto
 │   ├── openai_service.py      # Comunicação com a API OpenAI
 ├── templates/                 # Arquivos HTML
 │   ├── index.html             # Página inicial
 ├── static/                    # Arquivos estáticos
-│   ├── css/                   # Estilos CSS
-│   │   ├── css.css
-│   ├── js/                    # Scripts JavaScript
-│   │   ├── script.js
-├── utils/                     # Configurações e funções auxiliares
-│   ├── config.py              # Configurações globais (MongoDB, OpenAI)
-├── requirements.txt           # Dependências do projeto
-├── .env                       # Variáveis de ambiente
+│   ├── css/
+│   ├── js/
+├── utils/
+│   ├── config.py              # Configurações globais
+├── requirements.txt
+├── .env
 ```
 
 ---
@@ -147,12 +142,12 @@ chatbot_project/
 
 ### 1. Teste de Funcionalidades
 
-- **Upload de Documentos**: Envie um ou mais PDFs para garantir que os documentos são processados corretamente.
-- **Respostas do Chatbot**: Faça perguntas relacionadas aos documentos enviados e valide as respostas.
+- **Coleta de Resoluções**: Clique em "Buscar Resoluções" e valide se as informações são extraídas corretamente do site do IFAC.
+- **Respostas do Agente**: Faça perguntas relacionadas às resoluções e valide as respostas.
 
 ### 2. Teste do Banco de Dados
 
-Verifique se os documentos e embeddings estão salvos corretamente no MongoDB.
+Verifique se os documentos extraídos e embeddings estão armazenados corretamente no MongoDB.
 
 ---
 
@@ -176,16 +171,14 @@ Este projeto está licenciado sob a [MIT License](LICENSE).
 
 ## 📞 Contato
 
-- **Nome:** Jeder
-- **E-mail:** jederbertoldo258@gmail.com
-- **LinkedIn:** [https://www.linkedin.com/in/jeder-valdivino-3700101b0/]
+- **Nome:** Jeder  
+- **E-mail:** jederbertoldo258@gmail.com  
+- **LinkedIn:** [https://www.linkedin.com/in/jeder-valdivino-3700101b0/](https://www.linkedin.com/in/jeder-valdivino-3700101b0/)
 
 ---
 
 ## 🌟 Agradecimentos
 
-- [OpenAI](https://platform.openai.com/) pela API de IA.
-- [Sentence Transformers](https://www.sbert.net/) pelos modelos de embeddings.
-- Toda a equipe do IFAC pelo apoio ao desenvolvimento deste projeto.
-  
-
+- [OpenAI](https://platform.openai.com/) pela API de IA.  
+- [Sentence Transformers](https://www.sbert.net/) pelos modelos de embeddings.  
+- Toda a equipe do IFAC pelo apoio ao desenvolvimento deste projeto.  
